@@ -1,6 +1,8 @@
 import Enums.Day;
+import Lesson24.TypeConversion;
 import collection.animal.*;
 import lesson16.SwitchExample;
+import lesson23.StringExample;
 
 import java.util.*;
 
@@ -160,6 +162,14 @@ public class Main {
         }
 
         System.out.println("=======================");
+// Lesson 23- String
+        StringExample.run();
+
+        System.out.println("=======================");
+//        Lesson 240 TypeConversion
+        TypeConversion.run();
+
+
     }
 
     }

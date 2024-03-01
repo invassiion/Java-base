@@ -1,19 +1,13 @@
 package collection.animal;
 
-public class Bird extends Animal {
+public class Bird extends Animal implements Flight{
     protected Boolean flyModeActive = false;
 
     public Bird() {
         super(MoveType.FLY);
     }
 
-    public final void takeOff() {
-        this.flyModeActive = true;
-    }
 
-    public final void landing() {
-        this.flyModeActive = false;
-    }
 
     public void isTheBirdFlying() {
         System.out.println(
@@ -29,4 +23,13 @@ public class Bird extends Animal {
         this.flyModeActive = flyModeActive;
     }
 
+    @Override
+    public void takeOff() {
+        flyModeActive = true;
+    }
+
+    @Override
+    public void landing() {
+        flyModeActive = false;
+    }
 }
