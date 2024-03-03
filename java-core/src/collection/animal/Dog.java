@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Dog extends Animal {
-    public Dog(String name, Integer weight) {
+    public Dog(String name, AnimalWeight weight) {
         super(name, weight, MoveType.WALK);
     }
 
@@ -14,7 +14,7 @@ public class Dog extends Animal {
 
     }
 
-    public static Dog of(String name, Integer weight) {
+    public static Dog of(String name, AnimalWeight weight) {
         return new Dog(name, weight);
     }
 
@@ -28,7 +28,7 @@ public class Dog extends Animal {
         System.out.println("Current position: " + currentPosition);
     }
 
-    public static Dog ofHomeless(Integer weight) {
+    public static Dog ofHomeless(AnimalWeight weight) {
         Dog dog = new Dog();
         dog.weight = weight;
         return dog;
@@ -36,9 +36,9 @@ public class Dog extends Animal {
 
     public static List<Dog> randomArray() {
         List<Dog> dogs = new ArrayList<>();
-        dogs.add(Dog.of("Sharik", 10));
-        dogs.add(Dog.of("Bobik", 17));
-        dogs.add(Dog.of("Tuzik", 11));
+        dogs.add(Dog.of("Sharik", new Animal.AnimalWeight(10, Animal.AnimalWeight.WeightType.KG)));
+        dogs.add(Dog.of("Bobik", new Animal.AnimalWeight(17, Animal.AnimalWeight.WeightType.KG)));
+        dogs.add(Dog.of("Tuzik", new Animal.AnimalWeight(11, Animal.AnimalWeight.WeightType.KG)));
 
 
         return dogs;
@@ -51,5 +51,10 @@ public class Dog extends Animal {
                 ", weight=" + weight +
                 ", currentPosition=" + currentPosition +
                 '}';
+    }
+
+    @Override
+    public void voice() {
+        System.out.println("WOf WOF");
     }
 }

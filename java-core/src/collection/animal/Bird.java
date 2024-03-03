@@ -1,13 +1,11 @@
 package collection.animal;
 
-public class Bird extends Animal implements Flight{
+public abstract class Bird extends Animal implements Flight{
     protected Boolean flyModeActive = false;
 
     public Bird() {
         super(MoveType.FLY);
     }
-
-
 
     public void isTheBirdFlying() {
         System.out.println(
@@ -32,4 +30,7 @@ public class Bird extends Animal implements Flight{
     public void landing() {
         flyModeActive = false;
     }
+
+//    Lesson 26 - Abstract class
+
 }

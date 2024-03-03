@@ -3,7 +3,7 @@ package collection.animal;
 public class Cat extends  Animal {
 
 
-    public Cat(String name, Integer weight) {
+    public Cat(String name, AnimalWeight weight) {
         super(name, weight, MoveType.WALK);
     }
 
@@ -20,6 +20,11 @@ public class Cat extends  Animal {
 
     public Integer jumpHeight() {
         if (this.weight == null) return 300;
-        return heightCoefficient(this.weight);
+        return heightCoefficient(this.weight.getValue());
+    }
+
+    @Override
+    public void voice() {
+        System.out.println("Meow meow");
     }
 }

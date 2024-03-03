@@ -3,6 +3,11 @@ import Lesson24.TypeConversion;
 import collection.animal.*;
 import lesson16.SwitchExample;
 import lesson23.StringExample;
+import lesson28.AnonExample;
+import lesson30.LambdaExample;
+import lesson31.StreamExample;
+import lesson32.MyFirstThread;
+import lesson33.TaskExample;
 
 import java.util.*;
 
@@ -16,10 +21,10 @@ public class Main {
 //        Dog homelessDog = Dog.ofHomeless(10);
 
         List<Dog> dogHomeles = Arrays.asList(new Dog[]{
-                Dog.ofHomeless(1),
-                Dog.ofHomeless(2),
-                Dog.ofHomeless(3),
-                Dog.ofHomeless(4),
+                Dog.ofHomeless(new Animal.AnimalWeight(3, Animal.AnimalWeight.WeightType.KG)),
+                Dog.ofHomeless(new Animal.AnimalWeight(4, Animal.AnimalWeight.WeightType.KG)),
+                Dog.ofHomeless(new Animal.AnimalWeight(4, Animal.AnimalWeight.WeightType.KG)),
+                Dog.ofHomeless(new Animal.AnimalWeight(5, Animal.AnimalWeight.WeightType.KG)),
         });
         System.out.println(dogHomeles.size());
         System.out.println(dogHomeles.get(0));
@@ -124,9 +129,9 @@ public class Main {
 
 //Lesson 20 - equals & hashcode
         System.out.println("=======================");
-        Dog dogSharik = new Dog("Sharik",5);
-        Dog dogSharik1 = new Dog("Sharik",5);
-        Dog dogBobik = new Dog("Bobik",5);
+        Dog dogSharik = new Dog("Sharik",new Animal.AnimalWeight(5, Animal.AnimalWeight.WeightType.KG));
+        Dog dogSharik1 = new Dog("Sharik",new Animal.AnimalWeight(5, Animal.AnimalWeight.WeightType.KG));
+        Dog dogBobik = new Dog("Bobik",new Animal.AnimalWeight(5, Animal.AnimalWeight.WeightType.KG));
 
         System.out.println("Operation == return: " + (dogSharik == dogSharik));
         System.out.println("Operation == return: " + (dogSharik == dogBobik));
@@ -153,9 +158,8 @@ public class Main {
 // Lesson 21 - Enums
         Dog dog = new Dog();
         Cat cat = new Cat();
-        Bird bird = new Bird();
         System.out.println(cat.getMoveType());
-        System.out.println(bird.getMoveType());
+
 
         if (dog.getMoveType() == MoveType.WALK) {
             System.out.println("Может ходить");
@@ -168,7 +172,41 @@ public class Main {
         System.out.println("=======================");
 //        Lesson 240 TypeConversion
         TypeConversion.run();
+        System.out.println("=======================");
+//        Lesson 28 - Anonimous class
+        AnonExample.run();
+        System.out.println("=======================");
 
+//        Lesson 29 - Exceptions
+        dog.setWeight(new Animal.AnimalWeight(10, Animal.AnimalWeight.WeightType.KG));
+        try{
+            dog.setWeight(new Animal.AnimalWeight(-10, Animal.AnimalWeight.WeightType.KG));
+        } catch (Animal.WeightException e) {
+            System.out.println("some Error");
+        }
+
+        System.out.println("=======================");
+//        Lesson 30 lambda
+        LambdaExample.run();
+
+        System.out.println("=======================");
+//        Lesson 31 Stream Api
+        StreamExample.run();
+
+        System.out.println("=======================");
+//        Lesson 32 Thread
+        MyFirstThread myFirstThread = new MyFirstThread();
+        myFirstThread.start();
+
+
+//        MyFirstThread.showThreads();
+//        MyFirstThread.showThreads();
+//        MyFirstThread.showThreads();
+//        MyFirstThread.showThreads();
+//        MyFirstThread.showThreads();
+
+//        Lesson 33 Tasks
+        TaskExample.run();
 
     }
 
